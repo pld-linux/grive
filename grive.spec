@@ -1,7 +1,7 @@
 Summary:	An open source Linux client for Google Drive
 Name:		grive
 Version:	0.2.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Networking
 URL:		http://www.lbreda.com/grive/
