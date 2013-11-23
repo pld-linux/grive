@@ -1,12 +1,17 @@
+%define	commit 27817e835fe115ebbda5410ec904aa49a2ad01f1
+%define	shortcommit %(c=%{commit}; echo ${c:0:7})
+%define	cdate	20130702
 Summary:	An open source Linux client for Google Drive
 Name:		grive
-Version:	0.2.0
-Release:	6
+Version:	0.3.0
+Release:	0.1.%{cdate}git%{shortcommit}
 License:	GPL v2
 Group:		Applications/Networking
+Source0:	https://github.com/Grive/grive/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
+# https://github.com/Grive/grive/issues/187
+Patch1:		%{name}-bgrive_cmake_fix.patch
 URL:		http://www.lbreda.com/grive/
-Source0:	http://www.lbreda.com/grive/_media/packages/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	8260b1e6c0369da35ebcfe8c8f840f2b
+BuildRequires:	QtCore-devel
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
 BuildRequires:	cmake
@@ -16,27 +21,34 @@ BuildRequires:	json-c-devel
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
+BuildRequires:	yajl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The purpose of this project is to provide an independent
 implementation of Google Drive client. It uses the Google Document
-List API to talk to the servers in Google. The code is written in
-standard C++.
+List API to talk to the servers in Google.
+
+%package -n bgrive
+Summary:	Qt frontend for %{name}
+Group:		Applications/Networking
+Requires:	%{name} = %{version}-%{release}
+
+%description -n bgrive
+GUI frontend for %{name}
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{commit}
+%patch1 -p1
 
 %build
 install -d build
 cd build
 %cmake ..
-
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -47,4 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/%{name}
-%{_mandir}/man1/grive.1*
+%{_mandir}/man1/%{name}.1*
+
+%files -n bgrive
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/bgrive
