@@ -8,6 +8,7 @@ Release:	0.1.%{cdate}git%{shortcommit}
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://github.com/Grive/grive/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
+# Source0-md5:	4f3c3411588f889801bd5b9297e6e2c9
 # https://github.com/Grive/grive/issues/187
 Patch1:		%{name}-bgrive_cmake_fix.patch
 URL:		http://www.lbreda.com/grive/
