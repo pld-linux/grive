@@ -1,10 +1,10 @@
-%define	commit 27817e835fe115ebbda5410ec904aa49a2ad01f1
-%define	shortcommit %(c=%{commit}; echo ${c:0:7})
-%define	cdate	20130702
+%define		commit		27817e835fe115ebbda5410ec904aa49a2ad01f1
+%define		shortcommit	27817e8			 # %(c=%{commit}; echo ${c:0:7})
+%define		cdate		20130702
 Summary:	An open source Linux client for Google Drive
 Name:		grive
 Version:	0.3.0
-Release:	0.1.%{cdate}git%{shortcommit}
+Release:	0.%{cdate}git%{shortcommit}.1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://github.com/Grive/grive/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
