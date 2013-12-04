@@ -13,6 +13,7 @@ Source0:	https://github.com/Grive/grive/archive/%{commit}/%{name}-%{version}-%{s
 # https://github.com/Grive/grive/issues/187
 Patch0:		json-c.patch
 Patch1:		%{name}-bgrive_cmake_fix.patch
+Patch2:		build.patch
 URL:		http://www.lbreda.com/grive/
 BuildRequires:	QtCore-devel
 BuildRequires:	binutils-devel
@@ -44,6 +45,7 @@ GUI frontend for %{name}
 %setup -q -n %{name}-%{commit}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 install -d build

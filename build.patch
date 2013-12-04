@@ -1,0 +1,18 @@
+--- grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/drive/State.cc~	2013-05-02 18:40:04.000000000 +0200
++++ grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/drive/State.cc	2013-12-04 11:38:00.382356428 +0100
+@@ -248,12 +248,12 @@
+ void State::Write( const fs::path& filename ) const
+ {
+ 	Json last_sync ;
+-	last_sync.Add( "sec",	Json(m_last_sync.Sec() ) );
+-	last_sync.Add( "nsec",	Json(m_last_sync.NanoSec() ) );
++	last_sync.Add( "sec",	Json((std::size_t)m_last_sync.Sec() ) );
++	last_sync.Add( "nsec",	Json((std::size_t)m_last_sync.NanoSec() ) );
+ 	
+ 	Json result ;
+ 	result.Add( "last_sync", last_sync ) ;
+-	result.Add( "change_stamp", Json(m_cstamp) ) ;
++	result.Add( "change_stamp", Json((std::size_t)m_cstamp) ) ;
+ 	
+ 	std::ofstream fs( filename.string().c_str() ) ;
+ 	fs << result ;
