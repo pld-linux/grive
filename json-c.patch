@@ -1,0 +1,13 @@
+--- grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/cmake/Modules/FindJSONC.cmake~	2013-05-02 18:40:04.000000000 +0200
++++ grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/cmake/Modules/FindJSONC.cmake	2013-12-04 01:11:58.326961184 +0100
+@@ -6,8 +6,8 @@
+ #  JSONC_INCLUDE_DIR - The JSON-C include directory.
+ #  JSONC_LIBRARY     - The JSON-C library to link against.
+ 
+-FIND_PATH(JSONC_INCLUDE_DIR json/json.h)
+-FIND_LIBRARY(JSONC_LIBRARY NAMES json)
++FIND_PATH(JSONC_INCLUDE_DIR json-c/json.h)
++FIND_LIBRARY(JSONC_LIBRARY NAMES json-c)
+ 
+ IF (JSONC_INCLUDE_DIR AND JSONC_LIBRARY)
+    SET(JSONC_FOUND TRUE)

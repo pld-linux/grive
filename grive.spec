@@ -11,6 +11,7 @@ Group:		Applications/Networking
 Source0:	https://github.com/Grive/grive/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
 # Source0-md5:	4f3c3411588f889801bd5b9297e6e2c9
 # https://github.com/Grive/grive/issues/187
+Patch0:		json-c.patch
 Patch1:		%{name}-bgrive_cmake_fix.patch
 URL:		http://www.lbreda.com/grive/
 BuildRequires:	QtCore-devel
@@ -19,7 +20,7 @@ BuildRequires:	boost-devel
 BuildRequires:	cmake
 BuildRequires:	curl-devel
 BuildRequires:	expat-devel
-BuildRequires:	json-c-devel
+BuildRequires:	json-c-devel >= 0.11
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
@@ -41,6 +42,7 @@ GUI frontend for %{name}
 
 %prep
 %setup -q -n %{name}-%{commit}
+%patch0 -p1
 %patch1 -p1
 
 %build
