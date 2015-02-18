@@ -11,3 +11,16 @@
  
  IF (JSONC_INCLUDE_DIR AND JSONC_LIBRARY)
     SET(JSONC_FOUND TRUE)
+--- grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/protocol/Json.cc~	2013-05-02 18:40:04.000000000 +0200
++++ grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/protocol/Json.cc	2015-02-18 18:11:40.664989070 +0100
+@@ -29,8 +29,8 @@
+ 	#pragma warning(push)
+ 	#pragma warning(disable: 4005)
+ #endif
+-#include <json/json_tokener.h>
+-#include <json/linkhash.h>
++#include <json-c/json_tokener.h>
++#include <json-c/linkhash.h>
+ #ifdef _MSC_VER
+ 	#pragma warning(pop)
+ #endif
