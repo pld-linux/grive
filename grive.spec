@@ -2,8 +2,9 @@
 # %(c=%{commit}; echo ${c:0:7})
 %define		shortcommit	27817e8
 %define		cdate		20130702
-%define		rel		15
+%define		rel		16
 Summary:	An open source Linux client for Google Drive
+Summary(pl.UTF-8):	Linuksowy, mające otwarte źródła klient Google Drive
 Name:		grive
 Version:	0.3.0
 Release:	0.%{cdate}git%{shortcommit}.%{rel}
@@ -34,13 +35,22 @@ The purpose of this project is to provide an independent
 implementation of Google Drive client. It uses the Google Document
 List API to talk to the servers in Google.
 
+%description -l pl.UTF-8
+Celem tego projektu jest zapewnienie niezależnej implementacji klienta
+Google Drive. Do komunikacji z serwerami Google'a wykorzystuje API
+Google Document List.
+
 %package -n bgrive
-Summary:	Qt frontend for %{name}
+Summary:	Qt frontend for Grive
+Summary(pl.UTF-8):	Interfejs Qt do Grive
 Group:		Applications/Networking
 Requires:	%{name} = %{version}-%{release}
 
 %description -n bgrive
-GUI frontend for %{name}
+GUI frontend for Grive.
+
+%description -n bgrive -l pl.UTF-8
+Graficzny interfejs użytkownika do Grive.
 
 %prep
 %setup -q -n %{name}-%{commit}
