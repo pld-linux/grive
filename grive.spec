@@ -1,8 +1,8 @@
 %define		commit		27817e835fe115ebbda5410ec904aa49a2ad01f1
-# %(c=%{commit}; echo ${c:0:7})
+# bash: %%(c=%{commit}; echo ${c:0:7})
 %define		shortcommit	27817e8
 %define		cdate		20130702
-%define		rel		18
+%define		rel		19
 Summary:	An open source Linux client for Google Drive
 Summary(pl.UTF-8):	Linuksowy, mające otwarte źródła klient Google Drive
 Name:		grive
