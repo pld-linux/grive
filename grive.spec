@@ -2,7 +2,7 @@
 # bash: %%(c=%{commit}; echo ${c:0:7})
 %define		shortcommit	27817e8
 %define		cdate		20130702
-%define		rel		29
+%define		rel		30
 Summary:	An open source Linux client for Google Drive
 Summary(pl.UTF-8):	Linuksowy, mające otwarte źródła klient Google Drive
 Name:		grive
@@ -16,6 +16,7 @@ Source0:	https://github.com/Grive/grive/archive/%{commit}/%{name}-%{version}-%{s
 Patch0:		json-c.patch
 Patch1:		%{name}-bgrive_cmake_fix.patch
 Patch2:		build.patch
+Patch3:		binutils-2.34.patch
 URL:		http://www.lbreda.com/grive/
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
@@ -58,6 +59,7 @@ Graficzny interfejs użytkownika do Grive.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 install -d build

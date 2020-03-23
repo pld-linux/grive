@@ -1,0 +1,18 @@
+--- grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/bfd/SymbolInfo.cc~	2013-05-02 18:40:04.000000000 +0200
++++ grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/bfd/SymbolInfo.cc	2020-03-23 18:17:48.516723904 +0100
+@@ -117,13 +117,13 @@
+ 	if ((section->flags & SEC_ALLOC) == 0)
+ 		return ;
+ 	
+-	bfd_vma vma = bfd_get_section_vma(abfd, section);
++	bfd_vma vma = bfd_section_vma(section);
+ 	
+ 	unsigned long address = (unsigned long)(info->m_addr);
+ 	if ( address < vma )
+ 		return;
+ 	
+-	bfd_size_type size = bfd_section_size(abfd, section);
++	bfd_size_type size = bfd_section_size(section);
+ 	if ( address > (vma + size))
+ 		return ;
+ 	
