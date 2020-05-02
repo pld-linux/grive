@@ -1,0 +1,64 @@
+--- grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/protocol/Json.cc.orig	2020-05-02 09:07:09.733415940 +0200
++++ grive-27817e835fe115ebbda5410ec904aa49a2ad01f1/libgrive/src/protocol/Json.cc	2020-05-02 09:11:48.378573057 +0200
+@@ -254,7 +254,7 @@
+ bool Json::Has( const std::string& key ) const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_object_get_ex( m_json, key.c_str(), 0 ) == TRUE ;
++	return ::json_object_object_get_ex( m_json, key.c_str(), 0 ) == 1 ;
+ }
+ 
+ bool Json::Get( const std::string& key, Json& json ) const
+@@ -294,14 +294,14 @@
+ bool Json::Bool() const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_get_boolean( m_json ) == TRUE ;
++	return ::json_object_get_boolean( m_json ) == 1 ;
+ }
+ 
+ template <>
+ bool Json::Is<bool>() const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_is_type( m_json, json_type_boolean ) == TRUE ;
++	return ::json_object_is_type( m_json, json_type_boolean ) == 1 ;
+ }
+ 
+ template <>
+@@ -320,7 +320,7 @@
+ bool Json::Is<std::string>() const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_is_type( m_json, json_type_string ) == TRUE ;
++	return ::json_object_is_type( m_json, json_type_string ) == 1 ;
+ }
+ 
+ template <>
+@@ -339,7 +339,7 @@
+ bool Json::Is<int>() const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_is_type( m_json, json_type_int ) == TRUE ;
++	return ::json_object_is_type( m_json, json_type_int ) == 1 ;
+ }
+ 
+ template <>
+@@ -402,7 +402,7 @@
+ bool Json::Is<Json::Object>() const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_is_type( m_json, json_type_object ) == TRUE ;
++	return ::json_object_is_type( m_json, json_type_object ) == 1 ;
+ }
+ 
+ template <>
+@@ -426,7 +426,7 @@
+ bool Json::Is<Json::Array>() const
+ {
+ 	assert( m_json != 0 ) ;
+-	return ::json_object_is_type( m_json, json_type_array ) == TRUE ;
++	return ::json_object_is_type( m_json, json_type_array ) == 1 ;
+ }
+ 
+ template <>
