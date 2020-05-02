@@ -19,11 +19,11 @@ Patch2:		build.patch
 Patch3:		binutils-2.34.patch
 Patch4:		%{name}-json-c-0.14.patch
 URL:		https://github.com/Grive/grive
-BuildRequires:	QtCore-devel
-BuildRequires:	QtGui-devel
+BuildRequires:	QtCore-devel >= 4
+BuildRequires:	QtGui-devel >= 4
 BuildRequires:	binutils-devel
-BuildRequires:	boost-devel
-BuildRequires:	cmake
+BuildRequires:	boost-devel >= 1.40.0
+BuildRequires:	cmake >= 2.8
 BuildRequires:	curl-devel
 BuildRequires:	expat-devel
 BuildRequires:	json-c-devel >= 0.11
