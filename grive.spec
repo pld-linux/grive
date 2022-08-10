@@ -30,6 +30,7 @@ BuildRequires:	json-c-devel >= 0.11
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
+BuildRequires:	qt4-build
 BuildRequires:	yajl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
