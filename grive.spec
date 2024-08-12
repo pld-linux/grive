@@ -18,6 +18,7 @@ Patch1:		%{name}-bgrive_cmake_fix.patch
 Patch2:		build.patch
 Patch3:		binutils-2.34.patch
 Patch4:		%{name}-json-c-0.14.patch
+Patch5:		libgcrypt1.10.patch
 URL:		https://github.com/Grive/grive
 BuildRequires:	QtCore-devel >= 4
 BuildRequires:	QtGui-devel >= 4
@@ -64,6 +65,7 @@ Graficzny interfejs użytkownika do Grive.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 install -d build
